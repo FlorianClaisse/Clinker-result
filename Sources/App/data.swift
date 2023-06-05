@@ -8,7 +8,7 @@ struct Welcome: Codable {
 // MARK: - DataClass
 struct DataClass: Codable {
     let clusters: [Cluster]
-    let links: [Link]
+    let groups: [Group]
 }
 
 // MARK: - Cluster
@@ -41,12 +41,8 @@ struct Names: Codable {
     }
 }
 
-// MARK: - Link
-struct Link: Codable {
-    let target: Target
-}
-
-// MARK: - Target
-struct Target: Codable {
-    let uid: String
+// MARK: - Group
+struct Group: Codable {
+    let label: String
+    let genes: [String]
 }
