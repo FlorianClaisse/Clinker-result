@@ -27,7 +27,7 @@ if let lineData = "Cluster Name\tGene UID\tGene Label\tGene Name\tLocus Tag\tPro
 for clusters in welcome.data.clusters {
     for loci in clusters.loci {
         for gene in loci.genes {
-            var count = 0
+            var count = 1
             var groupName = ""
             for group in welcome.data.groups {
                 if group.genes.contains(gene.uid) {
