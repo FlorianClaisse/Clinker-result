@@ -18,7 +18,7 @@ guard let fileHandle = FileHandle(forWritingAtPath: "\(dirPath)/output.txt") els
 
 fileHandle.truncateFile(atOffset: 0)
 
-if let lineData = "Cluster Name\tGene UID\tGene Label\tGene Name\tLocus Tag\tProduct Name\tsequence\ttranslation\tLink Count\tGroup\n".data(using: .utf8) {
+if let lineData = "Cluster Name\tGene UID\tGene Label\tGene Name\tPhRog\tTopHit\tLocus Tag\tFunction\tProduct Name\tsequence\ttranslation\tLink Count\tGroup\n".data(using: .utf8) {
     fileHandle.write(lineData)
 } else {
     fatalError("File write failed")
@@ -36,7 +36,7 @@ for clusters in welcome.data.clusters {
                     break
                 }
             }
-            if let lineData = "\(clusters.name)\t\(gene.uid)\t\(gene.label)\t\(gene.names.gene ?? "")\t\(gene.names.locusTag)\t\(gene.names.product)\t\(gene.sequence)\t\(gene.translation)\t\(count)\t\(groupName)\n".data(using: .utf8) {
+            if let lineData = "\(clusters.name)\t\(gene.uid)\t\(gene.label)\t\(gene.names.gene ?? "")\t\(gene.names.phrog ?? "")\t\(gene.names.topHit ?? "")\t\(gene.names.locusTag)\t\(gene.names.function ?? "")\t\(gene.names.product)\t\(gene.sequence)\t\(gene.translation)\t\(count)\t\(groupName)\n".data(using: .utf8) {
                 fileHandle.write(lineData)
             } else {
                 fatalError("File write failed")

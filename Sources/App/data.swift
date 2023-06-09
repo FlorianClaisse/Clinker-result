@@ -32,12 +32,16 @@ struct Gene: Codable {
 // MARK: - Names
 struct Names: Codable {
     let gene: String?
+    let phrog, topHit, function: String?
     let locusTag, product: String
 
     enum CodingKeys: String, CodingKey {
         case gene
         case locusTag = "locus_tag"
         case product
+        case phrog
+        case topHit = "top_hit"
+        case function
     }
 }
 
