@@ -8,13 +8,13 @@ let decoder = JSONDecoder()
 let welcome = try decoder.decode(Welcome.self, from: data)
 
 let dirPath = fileURL.deletingLastPathComponent().relativePath
-let outputFilePath = "\(dirPath)/output.txt"
+let outputFilePath = "\(dirPath)/output.csv"
 
 if !FileManager.default.fileExists(atPath: outputFilePath) {
     FileManager.default.createFile(atPath: outputFilePath, contents: nil, attributes: nil)
 }
 
-guard let fileHandle = FileHandle(forWritingAtPath: "\(dirPath)/output.txt") else { fatalError("File open failed") }
+guard let fileHandle = FileHandle(forWritingAtPath: "\(dirPath)/output.csv") else { fatalError("File open failed") }
 
 fileHandle.truncateFile(atOffset: 0)
 
